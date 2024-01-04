@@ -66,7 +66,7 @@ st.sidebar.markdown("**BOBEUF MichaÃ«l** - [LinkedIn](www.linkedin.com/in/michaÃ
 
 #---------------------------- PAGE INTRO OK --------------------------------------------------------------------------------------------------------------------------
 if page == pages[0]:
-    wildfire_head=load_csv(r"FIRE_SIZE\wildfire_head.csv")
+    wildfire_head=pd.read_csv("FIRE_SIZE\wildfire_head.csv")
     wildfire_describe=load_csv(r"FIRE_SIZE\wildfire_describe.csv")
     wildfire_isna= load_csv(r"FIRE_SIZE\wildfire_isna.csv")
     df_fire_isna = load_csv(r"FIRE_SIZE\df_fire_isna.csv")
