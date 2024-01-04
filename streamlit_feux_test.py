@@ -42,16 +42,16 @@ def load_csv(file_path):
 
 # Insérer votre chemin d'image
 # image_path = r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\feu.jpg"
-image_path = r"FIRE_SIZE\feu.jpg"
+# image_path = r"FIRE_SIZE\feu.jpg"
 
-# # Insérer le code HTML avec la balise img pour l'image
-banner_html = f"""
-<div style="text-align: center; padding: 10px;">
-    <img src="data:image/png;base64,{base64.b64encode(open(image_path, "rb").read()).decode()}" alt="Image" style="max-width: 100%;">
-</div>
-"""
-# Afficher la bannière HTML
-st.markdown(banner_html, unsafe_allow_html=True)
+# # # Insérer le code HTML avec la balise img pour l'image
+# banner_html = f"""
+# <div style="text-align: center; padding: 10px;">
+#     <img src="data:image/png;base64,{base64.b64encode(open(image_path, "rb").read()).decode()}" alt="Image" style="max-width: 100%;">
+# </div>
+# """
+# # Afficher la bannière HTML
+# st.markdown(banner_html, unsafe_allow_html=True)
 
 
 st.title("Projet de classification de feux de forêts")
