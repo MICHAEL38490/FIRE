@@ -66,13 +66,13 @@ st.sidebar.markdown("**BOBEUF MichaÃ«l** - [LinkedIn](www.linkedin.com/in/michaÃ
 
 #---------------------------- PAGE INTRO OK --------------------------------------------------------------------------------------------------------------------------
 if page == pages[0]:
-    wildfire_head=pd.read_csv("FIRE_SIZE\wildfire_head.csv")
-    wildfire_describe=load_csv(r"FIRE_SIZE\wildfire_describe.csv")
-    wildfire_isna= load_csv(r"FIRE_SIZE\wildfire_isna.csv")
-    df_fire_isna = load_csv(r"FIRE_SIZE\df_fire_isna.csv")
-    df_fire_head = load_csv(r"FIRE_SIZE\df_fire_head.csv")
-    df_duration_head = load_csv(r"Duration\df_duration_head.csv")
-    df_duration_isna = load_csv(r"Duration\df_duration_isna.csv")
+    wildfire_head=pd.read_csv("FIRE\FIRE_SIZE\wildfire_head.csv")
+    wildfire_describe=load_csv(r"FIRE\FIRE_SIZE\wildfire_describe.csv")
+    wildfire_isna= load_csv(r"FIRE\FIRE_SIZE\wildfire_isna.csv")
+    df_fire_isna = load_csv(r"FIRE\FIRE_SIZE\df_fire_isna.csv")
+    df_fire_head = load_csv(r"FIRE\FIRE_SIZE\df_fire_head.csv")
+    df_duration_head = load_csv(r"FIRE\Duration\df_duration_head.csv")
+    df_duration_isna = load_csv(r"FIRE\Duration\df_duration_isna.csv")
     # df_duration=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\Duration\duration_dataviz.csv")
     # df_fire=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\fire_dataviz.csv")
 
