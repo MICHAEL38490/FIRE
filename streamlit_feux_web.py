@@ -790,19 +790,19 @@ if page==pages[4]:
         predictd=clfd.predict(observationd) # prédiction durée
         st.write("La classe de superficie sera: ", predict)
         if predict==0:
-            st.write("Notre modèle prédit une superficie comprise entre 0 et 1000m²")
+            st.write("Notre modèle prédit une superficie comprise entre 0 et 1000m².")
         if predict==1:
-            st.write("Notre modèle prédit une superficie comprise entre 1000m² et 4 hectares")
+            st.write("Notre modèle prédit une superficie comprise entre 1000m² et 4 hectares.")
         if predict==2:
-            st.write("Notre modèle prédit une superficie comprise entre 4 et 40 hectares")
+            st.write("Notre modèle prédit une superficie comprise entre 4 et 40 hectares.")
 
         st.write("La classe de durée sera: ", predictd)
         if predictd==0:
-            st.write("Notre modèle prédit un incendie allant de 0 à 1h")
+            st.write("Notre modèle prédit un incendie allant de 0 à 1h.")
         if predictd==1:
-            st.write("Notre modèle prédit un incendie allant de 1 à 3h15")
+            st.write("Notre modèle prédit un incendie allant de 1 à 3h15.")
         if predictd==2:
-            st.write("Notre modèle prédit un incendie allant de 3h15 à 6 jours")
+            st.write("Notre modèle prédit un incendie allant de 3h15 à 6 jours.")
    
     
 
