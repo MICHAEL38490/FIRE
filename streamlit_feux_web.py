@@ -23,9 +23,6 @@ import base64
 st.set_page_config(layout="wide")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
-# @st.cache_data
-# def load_csv(file_path):
-#     return pd.read_csv(file_path)
 
 wildfire_head=pd.read_csv("wildfire_head.csv")
 wildfire_describe=pd.read_csv("wildfire_describe.csv")
@@ -37,22 +34,7 @@ df_duration_isna = pd.read_csv("df_duration_isna.csv")
 
 
 
-# df_wild=load_csv(r"C:\Users\mbobe\Documents\DATAANALYSE\FIRE\wildfires.csv")
-# df_duration=load_csv(r"C:\Users\mbobe\Documents\DATAANALYSE\FIRE\duration_dataviz.csv")
-# df_fire=load_csv(r"C:\Users\mbobe\Documents\DATAANALYSE\FIRE\fire_dataviz.csv")
-
-# Ouest=df_fire.loc[df_fire['cluster']==1]
-# Sud_Est=df_fire.loc[df_fire['cluster']==4]
-# Sud=df_fire.loc[df_fire['cluster']==3]
-# Alaska=df_fire.loc[df_fire['cluster']==0]
-# Nouvelle_Angleterre=df_fire.loc[df_fire['cluster']==5]
-# MidWest=df_fire.loc[df_fire['cluster']==2]
-  
-
-
 # Insérer votre chemin d'image
-# image_path = r"C:\Users\
-# mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\feu.jpg"
 image_path = "feu.jpg"
 # # Insérer le code HTML avec la balise img pour l'image
 banner_html = f"""
@@ -77,9 +59,6 @@ st.sidebar.markdown("**BOBEUF Michaël** - [LinkedIn](www.linkedin.com/in/micha�
 #---------------------------- PAGE INTRO OK --------------------------------------------------------------------------------------------------------------------------
 if page == pages[0]:
    
-    # df_duration=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\Duration\duration_dataviz.csv")
-    # df_fire=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\fire_dataviz.csv")
-
     st.write("### Introduction")
     
     st.markdown("""
@@ -172,64 +151,16 @@ if page == pages[0]:
     st.write("DF_DURATION contient 751 697 entrées et 30 variables.")
     if st.checkbox("Afficher  les NA"):
         st.dataframe(df_duration_isna)  
-        
-
-
-# DEFINITION DES FONCTIONS MISES EN CACHE POUR GENERER LES GRAPHIQUES PLUS RAPIDEMENT     
-
-# @st.cache_data
-# def generate_etat_chart(df_fire,chart_choice):
-#     if chart_choice == 'US clusters':
-#         fig=px.scatter(data_frame=df_fire,x='LONGITUDE',y='LATITUDE', color='cluster',color_continuous_scale='ORRD')   #code pour afficher en plotly
-#         # plt.figure(figsize=(15,7))
-#         # sns.scatterplot(x=df_fire['LONGITUDE'],y=df_fire['LATITUDE'], hue=df_fire['cluster'])
-#         # plt.legend(title='Clusters')
-       
-
-
+ 
 
 if page == pages[1]:
-    # df_duration=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\Duration\duration_dataviz.csv")
-    # df_fire=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\fire_dataviz.csv")
-        
+           
 # AFFICHAGE DES TARGETS
     st.write("### DataVizualisation")
     if st.checkbox("Afficher les graphiques Targets"):
         image = Image.open("piecharts.png")     #chemin de votre image à définir
         st.image(image, use_column_width=True)
-        
-        # colors = ['lightblue', 'beige', 'lightseagreen', 'antiquewhite', 'cadetblue', 'darkorange', 'goldenrod']
-        # fig = make_subplots(rows=1, cols=2, subplot_titles=["Répartition de FIRE_SIZE_CLASS", "Répartition de DURATION_CLASS"],
-        #                 specs=[[{'type': 'pie'}, {'type': 'pie'}]])
-
-        # # Ajouter le premier Pie chart
-        # fig.add_trace(
-        #     go.Pie(labels=df_fire['FIRE_SIZE_CLASS'].value_counts().index,
-        #         values=df_fire['FIRE_SIZE_CLASS'].value_counts().values,
-        #         marker_colors=colors,
-        #         marker_line=dict(color='black', width=2.5),
-        #         pull=[0.2, 0.2, 0, 0.2, 0.4, 0.6, 0.8]),
-        #     row=1, col=1
-        # )
-
-        # # Ajouter le deuxième Pie chart
-        # fig.add_trace(
-        #     go.Pie(labels=df_duration['DURATION_CLASS'].value_counts().index,
-        #         values=df_duration['DURATION_CLASS'].value_counts().values,
-        #         marker_colors=colors,
-        #         marker_line=dict(color='black', width=2.5),
-        #         pull=[0, 0.2, 0.3]),
-        #     row=1, col=2
-        # )
-        # button_fire_size_class = dict(label="Superficie", method="restyle", args=[{"visible": [True, False]}])
-        # button_duration_class = dict(label="Durée", method="restyle", args=[{"visible": [False, True]}])
-        # button_both = dict(label="Les deux", method="restyle", args=[{"visible": [True, True]}])
-        # fig.update_layout(updatemenus=[dict(type='buttons',
-        #                                     buttons=[button_fire_size_class, button_duration_class, button_both])])
-                                               
-       
-        # fig.update_layout(title_text="Répartition de FIRE_SIZE_CLASS et DURATION_CLASS")
-        # st.plotly_chart(fig)
+                
     st.markdown("""
     <div style="text-align: justify;">
     La cible FIRE_SIZE_CLASS est composée de 7 classes. Les 3 premières, A, B et C représentent 97% des informations, dont 85% pour A et B.
@@ -246,61 +177,25 @@ if page == pages[1]:
         st.write('La variable explicative choisie est :', option)
 
         if option == 'STAT_CAUSE_DESCR':
-            image = Image.open("STAT_CAUSE_DESCR.png")     #chemin de votre image à définir
+            image = Image.open("STAT_CAUSE_DESCR.png")     
             st.image(image, use_column_width=True)
         if option == 'CLUSTER':
-            image = Image.open("CLUSTER.png")     #chemin de votre image à définir
+            image = Image.open("CLUSTER.png")    
             st.image(image, use_column_width=True)
         if option == 'DISCOVERY_DOY':
-            image = Image.open("DISCOVERY_DOY.png")     #chemin de votre image à définir
+            image = Image.open("DISCOVERY_DOY.png")     
             st.image(image, use_column_width=True)
         if option == 'DISCOVERY_MONTH':
-            image = Image.open("DISCOVERY_MONTH.png")     #chemin de votre image à définir
+            image = Image.open("DISCOVERY_MONTH.png")    
             st.image(image, use_column_width=True)
         if option == 'OWNER_DESCR':
-            image = Image.open("OWNER_DESCR.png")     #chemin de votre image à définir
+            image = Image.open("OWNER_DESCR.png")   
             st.image(image, use_column_width=True)
         if option == 'DISCOVERY_YEAR':
-            image = Image.open("DISCOVERY_YEAR.png")     #chemin de votre image à définir
+            image = Image.open("DISCOVERY_YEAR.png")   
             st.image(image, use_column_width=True)
 
-        # fig, axes = plt.subplots(2, 1, figsize=(20,15))
-        # fig.subplots_adjust(hspace=0.3)
-        # # Premier graphique
-        # data=pd.DataFrame(df_duration[['DURATION_CLASS',option]].value_counts().reset_index())
-        # pourcentage = data.groupby(option)['count'].transform(lambda x: x / x.sum() * 100)
-        # data['Pourcentage'] = pourcentage.values
-        # sns.barplot(x='Pourcentage', y=option, hue='DURATION_CLASS', data=data, fill=True, orient='h', color='#8BD3E6',ax=axes[0])
-        # axes[0].set_title("Durée")
-        # if option != 'DURATION_CLASS':
-        #     # Ajustez les coordonnées pour positionner l'axe intérieur sur la droite
-        #     inner_ax = fig.add_axes([axes[0].get_position().x1 + 0.01, axes[0].get_position().y0, 0.3, axes[0].get_position().height])
-        #     sns.barplot(x=option, y='DURATION_IN_HOURS', data=df_duration, dodge=False, color='#8BD3E6', ax=inner_ax)
-        #     inner_ax.set_xticklabels(inner_ax.get_xticklabels(), rotation=45)
-        #     inner_ax.set_title(f'Distribution de DURATION_IN_HOURS pour {option}')
-        #     inner_ax.set(xlabel=None, ylabel=None)
-        #     inner_ax.yaxis.tick_right()
-        #     inner_ax.tick_params(axis='y', which='both', left=False, right=True)
-
-        # #  Deuxième graphique
-        
-        # datas=pd.DataFrame(df_fire[['FIRE_SIZE_CLASS',option]].value_counts().reset_index())
-        # pourcentages = datas.groupby(option)['count'].transform(lambda x: x / x.sum() * 100)
-        # datas['Pourcentage'] = pourcentages.values
-        # sns.barplot(x='Pourcentage', y=option, hue='FIRE_SIZE_CLASS', data=datas[(datas['FIRE_SIZE_CLASS']=='A')|(datas['FIRE_SIZE_CLASS']=='B')|(datas['FIRE_SIZE_CLASS']=='C')], fill=True, orient='h', color='#F5B7B1',ax=axes[1])
-        # axes[1].set_title("Superficie")
-        # if option != 'FIRE_SIZE_CLASS':
-        #     # Ajustez les coordonnées pour positionner l'axe intérieur sur la droite
-        #     inner_ax = fig.add_axes([axes[1].get_position().x1 + 0.01, axes[1].get_position().y0, 0.3, axes[1].get_position().height])
-        #     sns.barplot(x=option, y='FIRE_SIZE', data=df_fire, dodge=False, color='#F5B7B1', ax=inner_ax)
-        #     inner_ax.set_xticklabels(inner_ax.get_xticklabels(), rotation=45)
-        #     inner_ax.set_title(f'Distribution de FIRE_SIZE pour {option}')
-        #     inner_ax.set(xlabel=None, ylabel=None)
-        #     inner_ax.yaxis.tick_right()
-        #     inner_ax.tick_params(axis='y', which='both', left=False, right=True)
-
-        # st.pyplot(fig)
-
+       
     st.markdown("""
     <div style="text-align: justify;">
     <li><strong>Causes:</strong> La foudre provoque le plus de dégâts aux Etats-Unis, 
@@ -321,60 +216,16 @@ if page == pages[1]:
     </div><br><br>
     """, unsafe_allow_html=True)
 
-
-    # @st.cache
-    # def plot_charts(option, df_duration, df_fire):
-    #     fig, axes = plt.subplots(2, 1, figsize=(20,15))
-    #     fig.subplots_adjust(hspace=0.3)
-
-    #     # Premier graphique
-    #     sns.countplot(y=option, hue='DURATION_CLASS', data=df_duration, dodge=False, color='#8BD3E6', ax=axes[0])
-    #     axes[0].set_title("Durée")
-    #     if option != 'DURATION_CLASS':
-    #         # Ajustez les coordonnées pour positionner l'axe intérieur sur la droite
-    #         inner_ax = fig.add_axes([axes[0].get_position().x1 + 0.01, axes[0].get_position().y0, 0.3, axes[0].get_position().height])
-    #         sns.barplot(x=option, y='DURATION_IN_HOURS', data=df_duration, dodge=False, color='#8BD3E6', ax=inner_ax)
-    #         inner_ax.set_xticklabels(inner_ax.get_xticklabels(), rotation=45)
-    #         inner_ax.set_title(f'Distribution de DURATION_IN_HOURS pour {option}')
-    #         inner_ax.set(xlabel=None, ylabel=None)
-    #         inner_ax.yaxis.tick_right()
-    #         inner_ax.tick_params(axis='y', which='both', left=False, right=True)
-
-    #     # Deuxième graphique
-    #     sns.countplot(y=option, hue='FIRE_SIZE_CLASS', data=df_fire, dodge=False, color='#F5B7B1', ax=axes[1])
-    #     axes[1].set_title("Superficie")
-    #     if option != 'FIRE_SIZE_CLASS':
-    #         # Ajustez les coordonnées pour positionner l'axe intérieur sur la droite
-    #         inner_ax = fig.add_axes([axes[1].get_position().x1 + 0.01, axes[1].get_position().y0, 0.3, axes[1].get_position().height])
-    #         sns.barplot(x=option, y='FIRE_SIZE', data=df_fire, dodge=False, color='#F5B7B1', ax=inner_ax)
-    #         inner_ax.set_xticklabels(inner_ax.get_xticklabels(), rotation=45)
-    #         inner_ax.set_title(f'Distribution de FIRE_SIZE pour {option}')
-    #         inner_ax.set(xlabel=None, ylabel=None)
-    #         inner_ax.yaxis.tick_right()
-    #         inner_ax.tick_params(axis='y', which='both', left=False, right=True)
-
-    #     return fig
-
-    # Utilisation de la fonction mise en cache
-    # if st.checkbox("Afficher les tailles et durées de feux"):
-    #     choix = ['STAT_CAUSE_DESCR', 'cluster', 'DISCOVERY_DOY', 'DISCOVERY_MONTH', 'OWNER_DESCR', 'DISCOVERY_YEAR']
-    #     option = st.selectbox('Choix de la variable explicative', choix)
-    #     st.write('La variable explicative choisie est :', option)
-
-    #     # Appel de la fonction mise en cache
-    #     fig = plot_charts(option, df_duration, df_fire)
-
-    #     st.pyplot(fig)
         
 
 # AFFICHAGE GEOGRAPHIE
     if st.checkbox("Afficher les graphiques géographiques"):
         chart_choice = st.selectbox('Choix du graphique', ['Détail des clusters', 'US Clusters'])
         if chart_choice == "US Clusters":
-          image = Image.open("US clusters.png")     #chemin de votre image à définir
+          image = Image.open("US clusters.png")     
           st.image(image, use_column_width=True)
         if chart_choice =="Détail des clusters":
-          image = Image.open("Each cluster.png")  #chemin de votre image à définir
+          image = Image.open("Each cluster.png")  
           st.image(image,  use_column_width=True)
           
     
@@ -386,59 +237,7 @@ if page == pages[1]:
     </div><br><br>
     """, unsafe_allow_html=True)
 
-    # if st.checkbox("Carte US interactive"):
-    #     fig=px.scatter(data_frame=df_fire,x='LONGITUDE',y='LATITUDE', color='FIRE_SIZE_CRITICITY',color_continuous_scale='ORRD', animation_frame='DISCOVERY_YEAR')   #code pour afficher en plotly
-    #     fig['layout'].pop("updatemenus")
-    #     st.plotly_chart(fig) 
-      
-
-#         chart_choice_geo = st.selectbox('Choix du graphique', ['US clusters', 'Per cluster', 'Cluster by time'])
-#         # Affichage carte globale
-#         fig_etat = generate_etat_chart(df_fire,chart_choice_geo)
-#         # st.plotly_chart(fig_etat) # pour afficher le graph version plotly
-#         st.pyplot(fig_etat)
-#         # Affichage des superficies par cluster 
-#         fig_cluster = generate_cluster_chart(Ouest,Sud_Est,Sud,Alaska,Nouvelle_Angleterre,MidWest,chart_choice_geo)
-#         st.pyplot(fig_cluster)       
-#         # Affichage interactif de chaque cluster       
-#         if chart_choice_geo == 'Cluster by time':
-#             fig_1=px.scatter(data_frame=Ouest, x='LONGITUDE', y='LATITUDE',color='FIRE_SIZE_CRITICITY', color_continuous_scale='ORRD',animation_frame='DISCOVERY_YEAR',
-#                             hover_data={'STAT_CAUSE_DESCR': True})
-#             fig_1['layout'].pop("updatemenus")
-#             fig_1.update_layout(title="Ouest")
-#             st.plotly_chart(fig_1) 
-            
-#             fig_2=px.scatter(data_frame=Sud_Est, x='LONGITUDE', y='LATITUDE',color='FIRE_SIZE_CRITICITY', color_continuous_scale='ORRD',animation_frame='DISCOVERY_YEAR',
-#                             hover_data={'STAT_CAUSE_DESCR': True})
-#             fig_2['layout'].pop("updatemenus")
-#             fig_2.update_layout(title="Sud-Est")
-#             st.plotly_chart(fig_2) 
-            
-#             fig_3=px.scatter(data_frame=Sud, x='LONGITUDE', y='LATITUDE',color='FIRE_SIZE_CRITICITY', color_continuous_scale='ORRD',animation_frame='DISCOVERY_YEAR',
-#                             hover_data={'STAT_CAUSE_DESCR': True})
-#             fig_3['layout'].pop("updatemenus")
-#             fig_3.update_layout(title="Sud")
-#             st.plotly_chart(fig_3) 
-            
-#             fig_4=px.scatter(data_frame=Alaska, x='LONGITUDE', y='LATITUDE',color='FIRE_SIZE_CRITICITY', color_continuous_scale='ORRD',animation_frame='DISCOVERY_YEAR',
-#                             hover_data={'STAT_CAUSE_DESCR': True})
-#             fig_4['layout'].pop("updatemenus")
-#             fig_4.update_layout(title="Alaska")
-#             st.plotly_chart(fig_4) 
-            
-#             fig_5=px.scatter(data_frame=Nouvelle_Angleterre, x='LONGITUDE', y='LATITUDE',color='FIRE_SIZE_CRITICITY', color_continuous_scale='ORRD',animation_frame='DISCOVERY_YEAR',
-#                             hover_data={'STAT_CAUSE_DESCR': True})
-#             fig_5['layout'].pop("updatemenus")
-#             fig_5.update_layout(title="Nouvelle-Angleterre")
-#             st.plotly_chart(fig_5) 
-            
-#             fig_6=px.scatter(data_frame=MidWest, x='LONGITUDE', y='LATITUDE',color='FIRE_SIZE_CRITICITY', color_continuous_scale='ORRD',animation_frame='DISCOVERY_YEAR',
-#                             hover_data={'STAT_CAUSE_DESCR': True})
-#             fig_6['layout'].pop("updatemenus")
-#             fig_6.update_layout(title="MidWest")       
-#             st.plotly_chart(fig_6)    
-
-
+ 
 #--------------------------------------------------------------MODELISATION ----------------------------------------------------------
 if page == pages[2]:
     st.write("### Modélisation")
@@ -482,7 +281,7 @@ if page == pages[2]:
         if display == 'Accuracy':
             rf_score= joblib.load("Rf_score")
             st.write(rf_score)
-            # st.write('0.6467658143477044')
+            
         elif display == 'Classification_report':
             rf_classification= joblib.load("Rf_class")
             st.text(rf_classification)
@@ -493,7 +292,7 @@ if page == pages[2]:
         if display == 'Accuracy':
             logreg_score= joblib.load("logreg_score")
             st.write(logreg_score)
-            # st.write('0.5803869721922024')
+           
         elif display == 'Classification_report':
             logreg_classification= joblib.load("logreg_classification")
             st.text(logreg_classification)
@@ -504,7 +303,7 @@ if page == pages[2]:
         if display == 'Accuracy':
             xgboost_score= joblib.load("xgboost_score")
             st.write(xgboost_score)
-            # st.write('0.6649953095942114')
+           
         elif display == 'Classification_report':
             xgboost_classification= joblib.load("Fxgboost_classification")
             st.text(xgboost_classification)
@@ -705,13 +504,6 @@ if page == pages[3]:
     </div>
     """, unsafe_allow_html=True)
 
-
-
-  
-
-
-
-
 if page==pages[4]:
     st.write("### Test de prédiction")
     
@@ -816,13 +608,13 @@ if page==pages[5]:
     Nos variables explicatives, sur lesquelles nous avons axé notre étude étaient:
     <li>Les variables temporelles: année, mois, jour, heures, minutes</li>
     <li>Les causes d'incendies</li>
-    <li>Les zones géographiques</li>
+    <li>Les zones géographiques</li><br>
     
     En résumé, les incendies ont pour la grande majorité (85%) de 1992 à 2015 une petite superficie (entre 0 et 9,9 acres soit 4 hectares) et ne durent pas longtemps (entre 0 et 3h15min, classe 0 et 1).
     Les superficies sont influencées par divers facteurs:
-               <li>la cause: ce sont surtout les éclairs qui favorisent des incendies de grande surface</li>
-                <li>la zone géographique: les régions de l'Ouest et de l'Alaska sont propices au développement des feux</li>
-                <li>la saison: les feux se développent plus facilement durant la période estivale bien que le plus grand nombre d'incendies se déclare de Mars à Juin</li>
+    <li>la cause: ce sont surtout les éclairs qui favorisent des incendies de grande surface</li>
+    <li>la zone géographique: les régions de l'Ouest et de l'Alaska sont propices au développement des feux</li>
+    <li>la saison: les feux se développent plus facilement durant la période estivale bien que le plus grand nombre d'incendies se déclare de Mars à Juin</li><br>
 
     Par le biais de notre étude sur la durée, nous mettons en évidence plusieurs points:
     <li>la cause: les activités humaines sont à l'origine de feux de courte durée (feu de camp, débris incandescent etc), tandis que les feux les plus longs sont dus aux éclairs</li>
@@ -846,7 +638,7 @@ if page==pages[5]:
 
       
     
-    image = Image.open("planet.jpg")     #chemin de votre image à définir
+    image = Image.open("planet.jpg")   
     st.image(image, use_column_width=True)
     
    
