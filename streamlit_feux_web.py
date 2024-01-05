@@ -51,9 +51,9 @@ st.sidebar.title("Sommaire")
 pages=["Introduction et Exploration jeu de données", "DataVizualisation", "Modélisation", "Optimisation", "Test de prédiction", "Conclusion"]
 page=st.sidebar.radio("Aller vers", pages)
 st.sidebar.title("Auteurs")
-st.sidebar.markdown("**FONKOU Gabriella** - [LinkedIn](www.linkedin.com/in/gabriella-fonkou-40bb61120)")
-st.sidebar.markdown("**RANVOISY Yann** - [LinkedIn](www.linkedin.com/in/yannranvoisy)")
-st.sidebar.markdown("**BOBEUF Michaël** - [LinkedIn](www.linkedin.com/in/michaël-bobeuf)")
+st.sidebar.markdown("**FONKOU Gabriella** - [LinkedIn](https://www.linkedin.com/in/gabriella-fonkou-40bb61120)")
+st.sidebar.markdown("**RANVOISY Yann** - [LinkedIn](https://www.linkedin.com/in/yannranvoisy)")
+st.sidebar.markdown("**BOBEUF Michaël** - [LinkedIn](https://www.linkedin.com/in/michaël-bobeuf)")
 
 
 #---------------------------- PAGE INTRO OK --------------------------------------------------------------------------------------------------------------------------
