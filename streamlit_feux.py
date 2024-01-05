@@ -694,7 +694,7 @@ if page == pages[3]:
     
     st.markdown("""
     <div style="text-align: justify;">
-    L'optimisation de nos modèles nous ont permis de gagner en performance sur nos Random Forest. XG Boost conserve sa performance initiale pour ce qui concerne les prédictions de superficie.
+    L'optimisation de nos modèles nous a permis de gagner en performance sur nos Random Forest. XG Boost conserve sa performance initiale pour ce qui concerne les prédictions de superficie.
     En revanche, nous n'avons pas obtenu le résultat escompté pour la durée, dont la prédiction de la classe 2 s'est amoindrie.
     Les rappels sont restés égaux, nous n'avons pas réussi à améliorer les prédictions de la classe 2.
     

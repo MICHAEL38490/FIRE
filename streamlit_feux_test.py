@@ -18,14 +18,24 @@ import os
 from PIL import Image
 import base64
 
-
+# os.chdir(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE")
 
 st.set_page_config(layout="wide")
 st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # @st.cache_data
-def load_csv(file_path):
-    return pd.read_csv(file_path)
+# def load_csv(file_path):
+#     return pd.read_csv(file_path)
+
+wildfire_head=pd.read_csv("FIRE_SIZE/wildfire_head.csv")
+wildfire_describe=pd.read_csv("FIRE_SIZE/wildfire_describe.csv")
+wildfire_isna= pd.read_csv("FIRE_SIZE/wildfire_isna.csv")
+df_fire_isna = pd.read_csv("FIRE_SIZE/df_fire_isna.csv")
+df_fire_head = pd.read_csv("FIRE_SIZE/df_fire_head.csv")
+df_duration_head = pd.read_csv("Duration/df_duration_head.csv")
+df_duration_isna = pd.read_csv("Duration/df_duration_isna.csv")
+
+
 
 # df_wild=load_csv(r"C:\Users\mbobe\Documents\DATAANALYSE\FIRE\wildfires.csv")
 # df_duration=load_csv(r"C:\Users\mbobe\Documents\DATAANALYSE\FIRE\duration_dataviz.csv")
@@ -41,17 +51,17 @@ def load_csv(file_path):
 
 
 # Insérer votre chemin d'image
-# image_path = r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\feu.jpg"
-# image_path = r"FIRE_SIZE\feu.jpg"
-
-# # # Insérer le code HTML avec la balise img pour l'image
-# banner_html = f"""
-# <div style="text-align: center; padding: 10px;">
-#     <img src="data:image/png;base64,{base64.b64encode(open(image_path, "rb").read()).decode()}" alt="Image" style="max-width: 100%;">
-# </div>
-# """
-# # Afficher la bannière HTML
-# st.markdown(banner_html, unsafe_allow_html=True)
+# image_path = r"C:\Users\
+# mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\feu.jpg"
+image_path = "FIRE_SIZE/feu.jpg"
+# # Insérer le code HTML avec la balise img pour l'image
+banner_html = f"""
+<div style="text-align: center; padding: 10px;">
+    <img src="data:image/png;base64,{base64.b64encode(open(image_path, "rb").read()).decode()}" alt="Image" style="max-width: 100%;">
+</div>
+"""
+# Afficher la bannière HTML
+st.markdown(banner_html, unsafe_allow_html=True)
 
 
 st.title("Projet de classification de feux de forêts")
@@ -66,13 +76,7 @@ st.sidebar.markdown("**BOBEUF Michaël** - [LinkedIn](www.linkedin.com/in/micha�
 
 #---------------------------- PAGE INTRO OK --------------------------------------------------------------------------------------------------------------------------
 if page == pages[0]:
-    wildfire_head=pd.read_csv("FIRE\FIRE_SIZE\wildfire_head.csv")
-    wildfire_describe=load_csv(r"FIRE\FIRE_SIZE\wildfire_describe.csv")
-    wildfire_isna= load_csv(r"FIRE\FIRE_SIZE\wildfire_isna.csv")
-    df_fire_isna = load_csv(r"FIRE\FIRE_SIZE\df_fire_isna.csv")
-    df_fire_head = load_csv(r"FIRE\FIRE_SIZE\df_fire_head.csv")
-    df_duration_head = load_csv(r"FIRE\Duration\df_duration_head.csv")
-    df_duration_isna = load_csv(r"FIRE\Duration\df_duration_isna.csv")
+   
     # df_duration=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\Duration\duration_dataviz.csv")
     # df_fire=load_csv(r"C:\Users\mbobe\Desktop\Dossier APEC-DATA analyst\FORMATION DATA\FIRE\FIRE_SIZE\fire_dataviz.csv")
 
@@ -191,7 +195,7 @@ if page == pages[1]:
 # AFFICHAGE DES TARGETS
     st.write("### DataVizualisation")
     if st.checkbox("Afficher les graphiques Targets"):
-        image = Image.open(r"DATAVIZ\piecharts.png")     #chemin de votre image à définir
+        image = Image.open("DATAVIZ/piecharts.png")     #chemin de votre image à définir
         st.image(image, use_column_width=True)
         
         # colors = ['lightblue', 'beige', 'lightseagreen', 'antiquewhite', 'cadetblue', 'darkorange', 'goldenrod']
@@ -242,22 +246,22 @@ if page == pages[1]:
         st.write('La variable explicative choisie est :', option)
 
         if option == 'STAT_CAUSE_DESCR':
-            image = Image.open(r"DATAVIZ\STAT_CAUSE_DESCR.png")     #chemin de votre image à définir
+            image = Image.open("DATAVIZ/STAT_CAUSE_DESCR.png")     #chemin de votre image à définir
             st.image(image, use_column_width=True)
         if option == 'CLUSTER':
-            image = Image.open(r"DATAVIZ\CLUSTER.png")     #chemin de votre image à définir
+            image = Image.open("DATAVIZ/CLUSTER.png")     #chemin de votre image à définir
             st.image(image, use_column_width=True)
         if option == 'DISCOVERY_DOY':
-            image = Image.open(r"DATAVIZ\DISCOVERY_DOY.png")     #chemin de votre image à définir
+            image = Image.open("DATAVIZ/DISCOVERY_DOY.png")     #chemin de votre image à définir
             st.image(image, use_column_width=True)
         if option == 'DISCOVERY_MONTH':
-            image = Image.open(r"DATAVIZ\DISCOVERY_MONTH.png")     #chemin de votre image à définir
+            image = Image.open("DATAVIZ/DISCOVERY_MONTH.png")     #chemin de votre image à définir
             st.image(image, use_column_width=True)
         if option == 'OWNER_DESCR':
-            image = Image.open(r"DATAVIZ\OWNER_DESCR.png")     #chemin de votre image à définir
+            image = Image.open("DATAVIZ/OWNER_DESCR.png")     #chemin de votre image à définir
             st.image(image, use_column_width=True)
         if option == 'DISCOVERY_YEAR':
-            image = Image.open(r"DATAVIZ\DISCOVERY_YEAR.png")     #chemin de votre image à définir
+            image = Image.open("DATAVIZ/DISCOVERY_YEAR.png")     #chemin de votre image à définir
             st.image(image, use_column_width=True)
 
         # fig, axes = plt.subplots(2, 1, figsize=(20,15))
@@ -367,10 +371,10 @@ if page == pages[1]:
     if st.checkbox("Afficher les graphiques géographiques"):
         chart_choice = st.selectbox('Choix du graphique', ['Détail des clusters', 'US Clusters'])
         if chart_choice == "US Clusters":
-          image = Image.open(r"DATAVIZ\US clusters.png")     #chemin de votre image à définir
+          image = Image.open("DATAVIZ/US clusters.png")     #chemin de votre image à définir
           st.image(image, use_column_width=True)
         if chart_choice =="Détail des clusters":
-          image = Image.open(r"DATAVIZ\Each cluster.png")  #chemin de votre image à définir
+          image = Image.open("DATAVIZ/Each cluster.png")  #chemin de votre image à définir
           st.image(image,  use_column_width=True)
           
     
@@ -476,36 +480,36 @@ if page == pages[2]:
     display = st.radio('Que souhaitez-vous montrer?', ('Accuracy','Classification_report', 'Confusion matrix'))
     if option == 'Random Forest':
         if display == 'Accuracy':
-            rf_score= joblib.load(r"FIRE_SIZE\Rf_score")
+            rf_score= joblib.load(r"FIRE_SIZE/Rf_score")
             st.write(rf_score)
             # st.write('0.6467658143477044')
         elif display == 'Classification_report':
-            rf_classification= joblib.load(r"FIRE_SIZE\Rf_class")
+            rf_classification= joblib.load("FIRE_SIZE/Rf_class")
             st.text(rf_classification)
         else:
-            rf_matrix= joblib.load(r"FIRE_SIZE\Rf_matrix")
+            rf_matrix= joblib.load("FIRE_SIZE/Rf_matrix")
             st.dataframe(rf_matrix)
     elif option == 'Logistic Regression':
         if display == 'Accuracy':
-            logreg_score= joblib.load(r"FIRE_SIZE\logreg_score")
+            logreg_score= joblib.load("FIRE_SIZE/logreg_score")
             st.write(logreg_score)
             # st.write('0.5803869721922024')
         elif display == 'Classification_report':
-            logreg_classification= joblib.load(r"FIRE_SIZE\logreg_classification")
+            logreg_classification= joblib.load("FIRE_SIZE/logreg_classification")
             st.text(logreg_classification)
         else:
-            logreg_matrix= joblib.load(r"FIRE_SIZE\logreg_matrix")
+            logreg_matrix= joblib.load("FIRE_SIZE/logreg_matrix")
             st.dataframe(logreg_matrix)
     else:
         if display == 'Accuracy':
-            xgboost_score= joblib.load(r"FIRE_SIZE\xgboost_score")
+            xgboost_score= joblib.load("FIRE_SIZE/xgboost_score")
             st.write(xgboost_score)
             # st.write('0.6649953095942114')
         elif display == 'Classification_report':
-            xgboost_classification= joblib.load(r"FIRE_SIZE\xgboost_classification")
+            xgboost_classification= joblib.load("FIRE_SIZE/xgboost_classification")
             st.text(xgboost_classification)
         else:
-            xgboost_matrix= joblib.load(r"FIRE_SIZE\xgboost_matrix")
+            xgboost_matrix= joblib.load(r"FIRE_SIZE/xgboost_matrix")
             st.dataframe(xgboost_matrix)  
 
 
@@ -520,36 +524,36 @@ if page == pages[2]:
     displayd = st.radio('Que souhaitez-vous  montrer?', ('Accuracy','Classification_report', 'Confusion matrix'))
     if option_duration == 'Random Forest':
         if displayd == 'Accuracy':
-            rf_scored= joblib.load(r"Duration\rf_scored")
+            rf_scored= joblib.load("Duration/rf_scored")
             st.write(rf_scored)
             # st.write('0.6472528934415325')
         elif displayd == 'Classification_report':
-            rf_classificationd= joblib.load(r"Duration\rf_classificationd")
+            rf_classificationd= joblib.load("Duration/rf_classificationd")
             st.text(rf_classificationd)
         else:
-            rf_matrixd= joblib.load(r"Duration\rf_matrixd")
+            rf_matrixd= joblib.load("Duration/rf_matrixd")
             st.dataframe(rf_matrixd)
     elif option_duration == 'Logistic Regression':
         if displayd == 'Accuracy':
-            logreg_scored= joblib.load(r"Duration\logreg_scored")
+            logreg_scored= joblib.load("Duration/logreg_scored")
             st.write(logreg_scored)
             # st.write('0.49535719036849807')
         elif displayd == 'Classification_report':
-            logreg_classificationd= joblib.load(r"Duration\logreg_classificationd")
+            logreg_classificationd= joblib.load("Duration/logreg_classificationd")
             st.text(logreg_classificationd)
         else:
-            logreg_matrixd= joblib.load(r"Duration\logreg_matrixd")
+            logreg_matrixd= joblib.load("Duration/logreg_matrixd")
             st.dataframe(logreg_matrixd)
     else:
         if displayd == 'Accuracy':
-            xgboost_scored= joblib.load(r"Duration\xgboost_scored")
+            xgboost_scored= joblib.load("Duration/xgboost_scored")
             st.write(xgboost_scored)
             # st.write('0.6345350538778768')
         elif displayd == 'Classification_report':
-            xgboost_classificationd= joblib.load(r"Duration\xgboost_classificationd")
+            xgboost_classificationd= joblib.load("Duration/xgboost_classificationd")
             st.text(xgboost_classificationd)
         else:
-            xgboost_matrixd= joblib.load(r"Duration\xgboost_matrixd")
+            xgboost_matrixd= joblib.load("Duration/xgboost_matrixd")
             st.dataframe(xgboost_matrixd)
     
     
@@ -575,12 +579,12 @@ if page == pages[2]:
     
     </div>
     """, unsafe_allow_html=True)
-    rf_score= joblib.load(r"FIRE_SIZE\Rf_score")
-    logreg_score= joblib.load(r"FIRE_SIZE\logreg_score")
-    xgboost_score= joblib.load(r"FIRE_SIZE\XGBoost_opti_score")
-    rf_scored= joblib.load(r"Duration\rf_scored")
-    logreg_scored= joblib.load(r"Duration\logreg_scored")
-    xgboost_scored= joblib.load(r"Duration\xgboost_scored")
+    rf_score= joblib.load("FIRE_SIZE/Rf_score")
+    logreg_score= joblib.load("FIRE_SIZE/logreg_score")
+    xgboost_score= joblib.load("FIRE_SIZE/XGBoost_opti_score")
+    rf_scored= joblib.load("Duration/rf_scored")
+    logreg_scored= joblib.load("Duration/logreg_scored")
+    xgboost_scored= joblib.load("Duration/xgboost_scored")
 
     scores=[[rf_score, rf_scored],[xgboost_score,xgboost_scored],[logreg_score,logreg_scored]]
     modeles=['Random Forest','XG Boost','Logistic Regression']
@@ -623,23 +627,23 @@ if page == pages[3]:
     display = st.radio('Que souhaitez-vous montrer?', ('Accuracy','Classification_report', 'Confusion matrix'))
     if option == 'Random Forest Updated':
         if display == 'Accuracy':
-            rfopti_score=joblib.load(r"FIRE_SIZE\rfopti_score")
+            rfopti_score=joblib.load("FIRE_SIZE/rfopti_score")
             st.write(rfopti_score)
         elif display == 'Classification_report':
-            rfopti_classification=joblib.load(r"FIRE_SIZE\rfopti_classification")
+            rfopti_classification=joblib.load("FIRE_SIZE/rfopti_classification")
             st.text(rfopti_classification)
         else:
-            rfopti_matrix=joblib.load(r"FIRE_SIZE\rfopti_matrix")
+            rfopti_matrix=joblib.load("FIRE_SIZE/rfopti_matrix")
             st.dataframe(rfopti_matrix)
     elif option == 'XG boost Updated':
         if display == 'Accuracy':
-            xgopti_score=joblib.load(r"FIRE_SIZE\XGBoost_opti_score")
+            xgopti_score=joblib.load("FIRE_SIZE/XGBoost_opti_score")
             st.write(xgopti_score)
         elif display == 'Classification_report':
-            xgopti_classification=joblib.load(r"FIRE_SIZE\XGBoost_opti_class")
+            xgopti_classification=joblib.load("FIRE_SIZE/XGBoost_opti_class")
             st.text(xgopti_classification)
         else:
-            xgopti_matrix=joblib.load(r"FIRE_SIZE\XGBoost_opti_matrix")
+            xgopti_matrix=joblib.load("FIRE_SIZE/XGBoost_opti_matrix")
             st.dataframe(xgopti_matrix)
 
 #-----------------------------------------------------------------DURATION OPTIMISATION---------------------------------------------
@@ -654,29 +658,29 @@ if page == pages[3]:
     displayd = st.radio('Que souhaitez-vous  montrer?', ('Accuracy','Classification_report', 'Confusion matrix'))
     if optiond == 'Random Forest Updated':
         if displayd == 'Accuracy':
-            rfopti_scored=joblib.load(r"Duration\rfopti_scored")
+            rfopti_scored=joblib.load("Duration/rfopti_scored")
             st.write(rfopti_scored)
         elif displayd == 'Classification_report':
-            rfopti_classificationd=joblib.load(r"Duration\rfopti_classificationd")
+            rfopti_classificationd=joblib.load("Duration/rfopti_classificationd")
             st.text(rfopti_classificationd)
         else:
-            rfopti_matrixd=joblib.load(r"Duration\rfopti_matrixd")
+            rfopti_matrixd=joblib.load("Duration/rfopti_matrixd")
             st.dataframe(rfopti_matrixd)
     elif optiond == 'XG boost Updated':
         if displayd == 'Accuracy':
-            xgopti_scored=joblib.load(r"Duration\xgopti_scored")
+            xgopti_scored=joblib.load("Duration/xgopti_scored")
             st.write(xgopti_scored)
         elif displayd == 'Classification_report':
-            xgopti_classificationd=joblib.load(r"Duration\xgopti_classificationd")
+            xgopti_classificationd=joblib.load("Duration/xgopti_classificationd")
             st.text(xgopti_classificationd)
         else:
-            xgopti_matrixd=joblib.load(r"Duration\xgopti_matrixd")
+            xgopti_matrixd=joblib.load("Duration/xgopti_matrixd")
             st.dataframe(xgopti_matrixd)
     
-    rfopti_score=joblib.load(r"FIRE_SIZE\rfopti_score")
-    rfopti_scored=joblib.load(r"Duration\rfopti_scored")
-    xgopti_score=joblib.load(r"FIRE_SIZE\XGBoost_opti_score")
-    xgopti_scored=joblib.load(r"Duration\xgopti_scored")
+    rfopti_score=joblib.load("FIRE_SIZE/rfopti_score")
+    rfopti_scored=joblib.load("Duration/rfopti_scored")
+    xgopti_score=joblib.load("FIRE_SIZE/XGBoost_opti_score")
+    xgopti_scored=joblib.load("Duration/xgopti_scored")
 
     st.markdown("""
     <div style="text-align: justify;"><br><br>
@@ -731,8 +735,8 @@ if page==pages[4]:
     option_6=st.selectbox('Choix du paramètre Owner: 0-FOREIGN, 1-BLM, 2-BIA, 3-NPS, 4-FWS, 5-USFS, 6-OTHER FEDERAL, 7-STATE, 8-PRIVATE, 9-TRIBAL, 10-BOR, 11-COUNTY, 12-MUNICIPAL-LOCAL, 13-STATE OR PRIVATE, 14-NOT SPECIFIED, 15-UNDEFINED FEDERAL', owner)
     
     from sklearn.cluster import KMeans
-    kmeans = joblib.load(r"FIRE_SIZE\kmeans")
-    image = Image.open(r"FIRE_SIZE\US clusters.png")     #chemin de votre image à définir
+    kmeans = joblib.load(r"FIRE_SIZE/kmeans")
+    image = Image.open(r"FIRE_SIZE/US clusters.png")     #chemin de votre image à définir
     st.image(image, caption='Image PNG', use_column_width=True)
     long_input=st.text_input("Saisissez la longitude comprise entre -180 et -65")
     lat_input=st.text_input("Saissiez la latitude comprise entre 20 et 70")
@@ -783,8 +787,8 @@ if page==pages[4]:
     observationd= scaler.fit_transform(observationd)
     
     if st.checkbox("Afficher la prédiction"):
-        clf = joblib.load(r"FIRE_SIZE\XGBoost")                         # pour les deux cibles, nous avons utilisé le xgboost dans le streamlit car cela consomme moins de ressource
-        clfd=joblib.load(r"Duration\XGBoostd")
+        clf = joblib.load(r"FIRE_SIZE/XGBoost")                         # pour les deux cibles, nous avons utilisé le xgboost dans le streamlit car cela consomme moins de ressource
+        clfd=joblib.load(r"Duration/XGBoostd")
         predict = clf.predict(observation) # prédiction superficie
         predictd=clfd.predict(observationd) # prédiction durée
         st.write("La classe de superficie sera: ", predict)
@@ -832,7 +836,7 @@ if page==pages[5]:
 
       
     
-    image = Image.open(r"FIRE_SIZE\planet.jpg")     #chemin de votre image à définir
+    image = Image.open(r"FIRE_SIZE/planet.jpg")     #chemin de votre image à définir
     st.image(image, use_column_width=True)
     
    
