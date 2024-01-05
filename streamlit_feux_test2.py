@@ -6,6 +6,7 @@ import streamlit as st
 # import plotly.graph_objects as go
 # import plotly.express as px
 # from plotly.subplots import make_subplots
+import sklearn
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler,MinMaxScaler,RobustScaler, OneHotEncoder, OrdinalEncoder
 from sklearn.metrics import f1_score, confusion_matrix,classification_report
