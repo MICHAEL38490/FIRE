@@ -735,8 +735,8 @@ if page==pages[4]:
     kmeans = joblib.load("kmeans")
     image = Image.open("US clusters.png")     #chemin de votre image à définir
     st.image(image, caption='Image PNG', use_column_width=True)
-    long_input=st.text_input("Saisissez la longitude comprise entre -180 et -65")
-    lat_input=st.text_input("Saissiez la latitude comprise entre 20 et 70")
+    long_input=st.text_input("Saisissez une longitude cohérente comprise entre -180 et -65")
+    lat_input=st.text_input("Saisissez une latitude cohérente comprise entre 20 et 70")
     
     # Convertissez les entrées en tableau bidimensionnel
     if long_input and lat_input:
@@ -789,7 +789,20 @@ if page==pages[4]:
         predict = clf.predict(observation) # prédiction superficie
         predictd=clfd.predict(observationd) # prédiction durée
         st.write("La classe de superficie sera: ", predict)
+        if predict==0:
+            st.write("Notre modèle prédit une superficie comprise entre 0 et 1000m²")
+        if predict==1:
+            st.write("Notre modèle prédit une superficie comprise entre 1000m² et 4 hectares")
+        if predict==2:
+            st.write("Notre modèle prédit une superficie comprise entre 4 et 40 hectares")
+
         st.write("La classe de durée sera: ", predictd)
+        if predictd==0:
+            st.write("Notre modèle prédit un incendie allant de 0 à 1h")
+        if predictd==1:
+            st.write("Notre modèle prédit un incendie allant de 1 à 3h15")
+        if predictd==2:
+            st.write("Notre modèle prédit un incendie allant de 3h15 à 6 jours")
    
     
 
