@@ -612,13 +612,13 @@ if page==pages[5]:
     
     En résumé, les incendies ont pour la grande majorité (85%) de 1992 à 2015 une petite superficie (entre 0 et 9,9 acres soit 4 hectares) et ne durent pas longtemps (entre 0 et 3h15min, classe 0 et 1).
     Les superficies sont influencées par divers facteurs:
-    <li>la cause: ce sont surtout les éclairs qui favorisent des incendies de grande surface</li>
+    <li>la cause: ce sont surtout les éclairs qui favorisent des incendies étendus</li>
     <li>la zone géographique: les régions de l'Ouest et de l'Alaska sont propices au développement des feux</li>
     <li>la saison: les feux se développent plus facilement durant la période estivale bien que le plus grand nombre d'incendies se déclare de Mars à Juin</li><br>
 
     Par le biais de notre étude sur la durée, nous mettons en évidence plusieurs points:
-    <li>la cause: les activités humaines sont à l'origine de feux de courte durée (feu de camp, débris incandescent etc), tandis que les feux les plus longs sont dus aux éclairs</li>
-    <li>la zone géographique: les feux les plus longs sont sans suprise associés aux feux les plus étendues, donc en régions Ouest et Alaska</li>
+    <li>la cause: les activités humaines sont à l'origine de feux de courte durée (feux de camp, débris incandescents etc), tandis que les feux les plus longs sont dus aux éclairs</li>
+    <li>la zone géographique: les feux les plus longs sont sans suprise associés aux feux les plus étendus, donc en régions Ouest et Alaska</li>
     <li>la saison: même constat, les feux sont plus longs durant la période estivale</li><br>
 
     Nous avons ensuite modélisé nos données afin de prédire d'une part la superficie d'un feu, d'autre part sa durée. Nos modèles Random Forest et XG Boost ont obtenu des scores
