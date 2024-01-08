@@ -67,17 +67,18 @@ if page == pages[0]:
     Les enregistrements ont été acquis à partir des systèmes de reporting des organisations fédérales, étatiques et locales de
     lutte contre les incendies. Les données ont été transformées pour se conformer, 
     lorsque cela était possible, aux normes de données du National Wildfire Coordinating Group (NWCG). La base de données comprend
-    1,88 millions d'enregistrements géoréférencés, représentant un total de 140 millions d'acres brûlés entre 1992 et 2015.
-
-
-    Les incendies de forêt aux États-Unis représentent une menace croissante et récurrente, posant des défis significatifs tant sur le plan environnemental
-    que socio-économique.L’enjeu central de notre projet vise à présenter une analyse approfondie de ces évènements survenus aux États-Unis de 1992 à 2015.
-    </div>
+    1,88 millions d'enregistrements géoréférencés, représentant un total de 140 millions d'acres brûlés entre 1992 et 2015.<br><br>
     """, unsafe_allow_html=True)
+
+
+    st.write("### Objectif")
     st.markdown("""
     <div style="text-align: justify;">
+    
+    Les incendies de forêt aux États-Unis représentent une menace croissante et récurrente, posant des défis significatifs tant sur le plan environnemental
+    que socio-économique.L’enjeu central de notre projet vise à présenter une analyse approfondie de ces évènements survenus aux États-Unis de 1992 à 2015.<br>
+        
     A travers cette analyse, plusieurs questions seront abordées :
-
     <ul>
     <li><strong>Quels sont les paramètres pouvant faire varier la taille et la durée d'un feu?</strong></li>
     <li><strong>Quelles sont les régions les plus sensibles aux incendies ?</strong></li>
