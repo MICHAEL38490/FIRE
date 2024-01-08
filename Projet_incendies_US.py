@@ -626,8 +626,8 @@ if page==pages[5]:
 
     <ul><strong>LES LIMITES</strong></ul>    
     <li>Notre jeu de données contient très peu d'informations sur les incendies de grande taille et de longue durée.</li> 
-    <li>La cLasse 2 est de fait mal prédite.</li>
-    <li>nous pourrions incorporer des données météorologiques dont nous connaissons l'enjeu majeur aujourd'hui.</li><br><br>
+    <li>La classe 2 est de fait mal prédite.</li>
+    <li>Nous pourrions incorporer des données météorologiques dont nous connaissons l'enjeu majeur aujourd'hui.</li><br><br>
                 
     Pour conclure, notre étude souligne l'urgence et l'importance d'une compréhension approfondie de ces phénomènes à dominante naturelle et de la mise en place de mesures 
     d'atténuation efficaces ou de mesures préventives. Face à l'évolution des conditions climatiques, il est impératif d'adopter des pratiques durables et de développer
