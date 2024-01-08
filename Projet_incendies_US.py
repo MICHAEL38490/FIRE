@@ -63,7 +63,7 @@ if page == pages[0]:
     
     st.markdown("""
     <div style="text-align: justify;">
-    Notre projet contient des données spatiales sur les incendies de forêt survenus aux États-Unis de 1992 à 2015.
+    Notre projet contient des données sur les incendies de forêt survenus aux États-Unis de 1992 à 2015.
     Les enregistrements ont été acquis à partir des systèmes de reporting des organisations fédérales, étatiques et locales de
     lutte contre les incendies. Les données ont été transformées pour se conformer, 
     lorsque cela était possible, aux normes de données du National Wildfire Coordinating Group (NWCG). La base de données comprend
@@ -71,12 +71,12 @@ if page == pages[0]:
 
 
     Les incendies de forêt aux États-Unis représentent une menace croissante et récurrente, posant des défis significatifs tant sur le plan environnemental
-    que socio-économique.L’enjeu central de notre projet vise à présenter une analyse approfondie de feux d’incendies majeurs survenus aux États-Unis de 1992 à 2015.
+    que socio-économique.L’enjeu central de notre projet vise à présenter une analyse approfondie de ces évènements survenus aux États-Unis de 1992 à 2015.
     </div>
     """, unsafe_allow_html=True)
     st.markdown("""
     <div style="text-align: justify;">
-    A travers cette analyse, plusieurs interrogations seront abordées :
+    A travers cette analyse, plusieurs questions seront abordées :
 
     <ul>
     <li><strong>Quels sont les paramètres pouvant faire varier la taille et la durée d'un feu?</strong></li>
@@ -121,7 +121,7 @@ if page == pages[0]:
     <ul><strong>DF_FIRE</strong></ul>
     Ce dataset nous permettra d'analyser la superficie (FIRE_SIZE_CLASS) en fonction de différents paramètres.
     Il est obtenu par:
-    <li>Conversion et création de variables temporelles (Année, heures, minutes)</li>
+    <li>Conversion et création de variables temporelles (année, heures, minutes)</li>
     <li>Création de six clusters géographiques qui nous permettront d'analyser les incendies selon leur géolocalisation</li>
     <li>Suppression de variables identifiantes redondantes et de variables temporelles dont NaN>50%</li>
     </div>
@@ -204,15 +204,15 @@ if page == pages[1]:
                 (dans 70% des cas au-delà de 3h). A l'inverse, les feux causés par des enfants causent peu de dégâts par leur étendue, 
                 et dans 58% des cas durent moins d'une heure.
     <li><strong>Zones géographiques:</strong> L'Alaska est la région ayant connu un cumul de surfaces et de durées de feux le plus élevé. 
-                A contrario, les régions de l'est des Etats-Unis ont beaucoup plus été épargnées. 58% des feux en Nouvelle Angleterre durent moins d'une heure.</li>
+                A contrario, les régions de l'Est des Etats-Unis ont été plus épargnées. 58% des feux en Nouvelle Angleterre durent moins d'une heure.</li>
     <li><strong>Weekday:</strong> On n'observe pas de différence significative entre les jours de la semaine.</li>
-    <li><strong>Mois:</strong> Sans surprise, les mois d'été voient les surfaces et durées de feu les plus intenses. 
-                55% des feux en août ont ainsi une durée de plus de 3h. En janvier et en avril, la majorité des feux sont de durée courte.</li>
+    <li><strong>Mois:</strong> Sans surprise, les mois d'Eté voient les surfaces et durées de feu les plus intenses. 
+                55% des feux en Août ont ainsi une durée de plus de 3h. En Janvier et en Avril, la majorité des feux sont de durée courte.</li>
     <li><strong>Propriétaire terrain:</strong> Les terrains FWS ont subi les plus grandes étendues cumulées de feu. Les terrains connaissant en règle générale des 
                 feux de durées plus longues sont : USFS (Forest Service) et BLM (Bureau of Land Management). 
-                A l'inverse les terrains BIA (Bureau of Indian Affairs) et Tribal connaissent en générale des feux de durée courte.</li>
-    <li><strong>Année:</strong> Les surfaces cumulées de feux augmentent année après année, alors que la durée cumulée elle est plutôt en décroissance depuis 2008. 
-                En effet, on observe un pic de feux de longue durée entre 2000 et 2008.</li>
+                A l'inverse les terrains BIA (Bureau of Indian Affairs) et Tribal connaissent en général des feux de durée courte.</li>
+    <li><strong>Année:</strong> Les surfaces cumulées de feux augmentent année après année, alors que la durée cumulée est plutôt en décroissance depuis 2008. 
+                En effet, on observe un pic de feux de longues durées entre 2000 et 2008.</li>
     </div><br><br>
     """, unsafe_allow_html=True)
 
@@ -250,18 +250,18 @@ if page == pages[2]:
     <li>Suppression de variables redondantes </li>
     <li>Réduction des occurences de la variable cible aux trois principales (97% de l'information) pour FIRE_SIZE_CLASS</li> 
     <li>Pour des raisons de performance, nous avons divisé pour DF_FIRE le nombre d'entrées par deux, tout en conservant la répartition de FIRE_SIZE_CLASS</li>          
-    </div>
+    </div><br>
     """, unsafe_allow_html=True)
 
     st.markdown("""
     <div style="text-align: justify;">
     <ul><strong>SEPARATION DES JEUX ET PROCESSING</strong></ul>
-    Les jeux d'entrainement et de test ont été séparés selon la proportion 80%/20%, tout en respectant les proportions de chaque classe.
+    Les jeux d'entrainement et de test ont été séparés selon les proportions 80%/20%, tout en respectant la répartition des classes.
     Nous les avons ensuite processés de la manière suivante:
     <li>Remplacement des NaNs de DF_FIRE['DISCOVERY_TIME'] par la médiane (SimpleImputer)</li>     
-    <li>Redéfinition des variables HOURS et MiN à partir de cette dernière puis conversion selon le système trigonométrique</li>
+    <li>Redéfinition des variables HOURS et MIN à partir de cette dernière puis conversion selon le système trigonométrique</li>
     <li>Encodage des variables cible (LabelEncoder)</li> 
-    <li>Standardisation des valeurs par StandardScaler</li>          
+    <li>Standardisation des valeurs (StandardScaler)</li>          
     </div><br><br><br>
     """, unsafe_allow_html=True)
 
@@ -305,7 +305,7 @@ if page == pages[2]:
             st.write(xgboost_score)
            
         elif display == 'Classification_report':
-            xgboost_classification= joblib.load("Fxgboost_classification")
+            xgboost_classification= joblib.load("xgboost_classification")
             st.text(xgboost_classification)
         else:
             xgboost_matrix= joblib.load("xgboost_matrix")
@@ -363,9 +363,9 @@ if page == pages[2]:
     Nous avons choisi des modèles de classification pour notre analyse, notamment le Random Forest et XG Boost qui évitent l'overfitting et sont adaptés aux datasets de grande dimension.  
     Pour interpréter nos modèles, nous regardons:
     <li>le score: nous éliminons ainsi la régression logistique.</li>    
-    <li>le rappel: Cette métrique est un indicateur de performance quant au fait de prédire correctement les classes.
+    <li>le rappel: cette métrique est un indicateur de performance quant au fait de prédire correctement les classes.
     L'objectif est de prédire de manière qualitative puisqu'il serait désastreux d'allouer des moyens insuffisants pour maîtriser
-    un feu de superficie sous-estimée par notre modèle.</li><br>
+    un feu de superficie ou durée sous-estimée par notre modèle.</li><br>
     
     Nous choisissons de continuer avec le XG Boost et le Random Forest lors de l'étape d'optimisation, car ils présentent les meilleurs scores.
     Les classes 0 et 1 (les plus petites superficies regroupant 85% des données) sont mieux prédites. 
@@ -626,10 +626,10 @@ if page==pages[5]:
 
     <ul><strong>LES LIMITES</strong></ul>    
     <li>Notre jeu de données contient très peu d'informations sur les incendies de grande taille et de longue durée.</li> 
-    <li>CLasse 2 mal prédite</li>
-    <li>Incorporation de données météorologiques</li><br><br>
+    <li>La cLasse 2 est de fait mal prédite.</li>
+    <li>nous pourrions incorporer des données météorologiques dont nous connaissons l'enjeu majeur aujourd'hui.</li><br><br>
                 
-    Pour conclure, notre étude souligne l'urgence et l'importance d'une compréhension approfondie de ces phénomènes naturels et de la mise en place de mesures 
+    Pour conclure, notre étude souligne l'urgence et l'importance d'une compréhension approfondie de ces phénomènes à dominante naturelle et de la mise en place de mesures 
     d'atténuation efficaces ou de mesures préventives. Face à l'évolution des conditions climatiques, il est impératif d'adopter des pratiques durables et de développer
     des stratégies innovantes afin de mieux prévenir et gérer les incendies de manière à garantir un avenir plus résilient et durable.
     </div>
