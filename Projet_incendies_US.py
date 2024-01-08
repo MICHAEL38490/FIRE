@@ -46,7 +46,7 @@ banner_html = f"""
 st.markdown(banner_html, unsafe_allow_html=True)
 
 
-st.title("Projet de classification de feux de forêts")
+st.title("Projet Datascience: Incendies de feux de forêts aux US 1992-2015")
 st.sidebar.title("Sommaire")
 pages=["Introduction et Exploration jeu de données", "DataVizualisation", "Modélisation", "Optimisation", "Test de prédiction", "Conclusion"]
 page=st.sidebar.radio("Aller vers", pages)
@@ -59,7 +59,7 @@ st.sidebar.markdown("**BOBEUF Michaël** - [LinkedIn](https://www.linkedin.com/i
 #---------------------------- PAGE INTRO OK --------------------------------------------------------------------------------------------------------------------------
 if page == pages[0]:
    
-    st.write("### Introduction")
+    st.write("### Contexte")
     
     st.markdown("""
     <div style="text-align: justify;">
